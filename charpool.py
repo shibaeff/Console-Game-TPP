@@ -21,10 +21,7 @@ class Pool(metaclass=Singleton):
     """
     We have a unique pool in the beginning of the game.
     Pool is a randomly generated diverse collection of
-    card. It is meant to feature 2-3 CEOs, 2-3 COOs & etc.
-    There will be ~4-5 types of distinct positions.
-    There more diverse player's choice is, the more
-    successful the team will be.
+    card. Player is to choose 5 characters for the deck
     """
     # cards are retrived from cards fabric with random parameters
     def __init__(self):
