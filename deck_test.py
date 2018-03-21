@@ -1,3 +1,8 @@
-import charpool as cp
-test_pool = cp.Pool()
-print(*[str(item) for item in test_pool.get_pool_list()], sep="\n")
+import generation as gen
+
+
+def stringer(items):
+    for item in items:
+        print(item.name + " " + type(item).pos_name)
+
+stringer(gen.Pool.gen_pool(4, 5))
