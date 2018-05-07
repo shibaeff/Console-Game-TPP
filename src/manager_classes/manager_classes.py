@@ -1,15 +1,15 @@
-from abstract_classes import AbsManager
+from src.abstract_classes import abstract_classes as ac
 
 manager_params = ["team_work", "organization"]
 
 
-class LegalOff(AbsManager):
+class LegalOff(ac.ac.AbsManager):
     pos_name = "Legal Officer"
     skill_name = "legal"
 
     def __init__(self, name, leadership, reputation,
                  team_work, organization, legal, possessions):
-        AbsManager.__init__(self, name, leadership, reputation,
+        ac.AbsManager.__init__(self, name, leadership, reputation,
                             team_work, organization, possessions)
         self._legal = legal
 
@@ -22,13 +22,13 @@ class LegalOff(AbsManager):
         self._legal = val
 
 
-class AnalyticsOff(AbsManager):
+class AnalyticsOff(ac.AbsManager):
     pos_name = "Analytics Officer"
     skill_name = "analytics"
 
     def __init__(self, name, leadership, reputation,
                  team_work, organization, analytics, possessions):
-        AbsManager.__init__(self, name, leadership, reputation,
+        ac.AbsManager.__init__(self, name, leadership, reputation,
                             team_work, organization, possessions)
         self._analytics = analytics
 
@@ -41,13 +41,13 @@ class AnalyticsOff(AbsManager):
         self._analytics = val
 
 
-class FinancialOff(AbsManager):
+class FinancialOff(ac.AbsManager):
     pos_name = "Financial officer"
     skill_name = "financial"
 
     def __init__(self, name, leadership, reputation,
                  team_work, organization, financial, possessions):
-        AbsManager.__init__(self, name, leadership, reputation,
+        ac.AbsManager.__init__(self, name, leadership, reputation,
                             team_work, organization, possessions)
         self._financial = financial
 
