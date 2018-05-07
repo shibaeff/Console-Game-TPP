@@ -1,11 +1,11 @@
-import abstract_classes as ac
-import manager_classes as mc
-import tech_classes as tc
 import abc
+
+from src.abstract_classes import abstract_classes as ac
+
 
 class AbsBuilder(metaclass=abc.ABCMeta):
     def __init__(self):
-        self.__obj = ac.AbsCharacter(None, None, None, None)
+        self.__obj = ac.AbsCharacter(None, None, None, list())
 
     @property
     def obj(self):
@@ -32,9 +32,13 @@ class AbsBuilder(metaclass=abc.ABCMeta):
 
 class AbsManagerBuilder(AbsBuilder):
     def __init__(self, char_class):
-        self.obj = char_class(None, None, None, None, None, None, None)
+        self.obj = char_class("", int(), int(), int(), int(), int(), list())
 
 
 class AbsTechBuilder(AbsBuilder):
     def __init__(self, char_class):
-        self.obj = char_class(None, None, None, None, None, None)
+        self.obj = char_class("", int(), int(), int(), int(), list())
+
+class ItemBuilder(AbsBuilder):
+    def __init__(self, item_class):
+        self.obj = item_class()
