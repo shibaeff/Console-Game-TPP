@@ -9,6 +9,7 @@ class AbsCharacter():
 
     def __init__(self, name, leadership,
                  reputation, possessions):
+        assert valid_args(name, leadership, reputation, possessions)
         self._name = name
         self._leadership = leadership
         self._reputation = reputation
@@ -55,6 +56,7 @@ class AbsTech(AbsCharacter):
     pos_name = "Abstract Character"
 
     def __init__(self, name, leadership, reputation, tech_vision, possesisons):
+        assert valid_args(name, leadership, reputation, possesisons, tech_vision)
         AbsCharacter.__init__(self, name, leadership, reputation, possesisons)
         self._tech_vision = tech_vision
 
@@ -72,6 +74,9 @@ class AbsManager(AbsCharacter):
 
     def __init__(self, name, leadership, reputation,
                  team_work, organization, possessions):
+        assert valid_args(name, leadership, reputation,
+                          possessions, organization, team_work)
+
         AbsCharacter.__init__(self, name, leadership, reputation, possessions)
         self._pos_name = "AbsManager"
         self._team_work = team_work
@@ -92,3 +97,11 @@ class AbsManager(AbsCharacter):
     @organization.setter
     def organization(self, val):
         self._organization = val
+
+
+def valid_args(*args):
+    for arg in args:
+        if arg is None:
+            return False
+    return True
+
