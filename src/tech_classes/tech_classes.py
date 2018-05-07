@@ -1,13 +1,13 @@
-from abstract_classes import AbsTech
+from src.abstract_classes import abstract_classes as tc
 
 
-class DataOff(AbsTech):
+class DataOff(tc.AbsTech):
     pos_name = "Data Officer"
     skill_name = "data"
 
     def __init__(self, name, leadership, reputation,
                  tech_vision, data, possessions):
-        AbsTech.__init__(self, name, leadership, reputation,
+        tc.AbsTech.__init__(self, name, leadership, reputation,
                          tech_vision, possessions)
         self._data = data
 
@@ -20,13 +20,13 @@ class DataOff(AbsTech):
         self._data = val
 
 
-class SecurityOff(AbsTech):
+class SecurityOff(tc.AbsTech):
     pos_name = "Security Officer"
     skill_name = "security"
 
     def __init__(self, name, leadership, reputation,
                  tech_vision, security, possessions):
-        AbsTech.__init__(self, name, leadership, reputation,
+        tc.AbsTech.__init__(self, name, leadership, reputation,
                          tech_vision, possessions)
         self._security = security
 
@@ -39,13 +39,13 @@ class SecurityOff(AbsTech):
         self._security = val
 
 
-class ResearchOff(AbsTech):
+class ResearchOff(tc.AbsTech):
     pos_name = "Research Officer"
     skill_name = "research"
 
     def __init__(self, name, leadership, reputation,
                  tech_vision, research, possessions):
-        AbsTech.__init__(self, name, leadership, reputation,
+        tc.AbsTech.__init__(self, name, leadership, reputation,
                          tech_vision, possessions)
         self._research = research
 
@@ -58,13 +58,13 @@ class ResearchOff(AbsTech):
         self._research = val
 
 
-class WebOff(AbsTech):
+class WebOff(tc.AbsTech):
     pos_name = "Web Officer"
     skill_name = "web"
 
     def __init__(self, name, leadership, reputation,
                  tech_vision, web, possessions):
-        AbsTech.__init__(self, name, leadership, reputation,
+        tc.AbsTech.__init__(self, name, leadership, reputation,
                          tech_vision, possessions)
         self._web = web
 
