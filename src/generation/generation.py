@@ -1,10 +1,8 @@
-import builders
 from random import randint
 from numpy.random import choice
-from abstract_classes import common_params
-from manager_classes import  manager_params
-from manager_classes import manager_classes_list
-from tech_classes import tech_classes_list
+from src.builders import builders
+from src.manager_classes import manager_classes as mc
+from src.tech_classes import  tech_classes as tc
 
 skill_upper_bound = 11
 
@@ -24,28 +22,28 @@ class Pool:
         leadership, reputation = Pool.skill_val(), Pool.skill_val()
 
         if pos_type == "manager":
-            char_class = choice(manager_classes_list)
+            char_class = choice(mc.manager_classes_list)
             man_builder = builders.AbsManagerBuilder(char_class)
             man_builder.set_to_obj("_name", name)
             man_builder.set_to_obj("_leadership", leadership)
             man_builder.set_to_obj("_reputation", reputation)
-            for param in manager_params:
+            for param in mc.manager_params:
                 man_builder.set_to_obj("_" + param, Pool.skill_val())
             man_builder.set_to_obj("_"+char_class.pos_name, Pool.skill_val())
-            man_builder.set_to_obj("_possessions", None)
+            man_builder.set_to_obj("_possessions", list())
             return man_builder.return_obj()
 
         if pos_type == "tech":
-            char_class = choice(tech_classes_list)
+            char_class = choice(tc.tech_classes_list)
             tech_builder = builders.AbsTechBuilder(char_class)
             tech_builder.set_to_obj("_name", name)
             tech_builder.set_to_obj("_leadership", leadership)
             tech_builder.set_to_obj("_reputation", reputation)
             tech_builder.set_to_obj("_tech_vision", Pool.skill_val())
             tech_builder.set_to_obj("_" + char_class.pos_name, Pool.skill_val())
-            tech_builder.set_to_obj("_possessions", None)
+            tech_builder.set_to_obj("_possessions", list())
             return tech_builder.return_obj()
-        return None
+        raise RuntimeWarning
 
     @staticmethod
     def gen_pool(managers, tech):
